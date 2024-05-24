@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexGen 5G Upgrader Installation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Upgrade Your Phone to 5G</h1>
+        <p>Follow these steps to install the NexGen 5G Upgrader chip.</p>
+        
+        <div id="steps">
+            <div class="step" id="step1">
+                <h2>Step 1: Power Off Your Phone</h2>
+                <p>Turn off your phone to begin the installation process.</p>
+                <button onclick="nextStep(2)">Next</button>
+            </div>
+            
+            <div class="step" id="step2" style="display:none;">
+                <h2>Step 2: Insert the NexGen 5G Upgrader Chip</h2>
+                <p>Open the back cover of your phone and insert the chip into the designated slot.</p>
+                <button onclick="nextStep(3)">Next</button>
+            </div>
+            
+            <div class="step" id="step3" style="display:none;">
+                <h2>Step 3: Power On Your Phone</h2>
+                <p>After inserting the chip, close the back cover and power on your phone.</p>
+                <button onclick="nextStep(4)">Next</button>
+            </div>
+            
+            <div class="step" id="step4" style="display:none;">
+                <h2>Step 4: Install the NexGen 5G App</h2>
+                <p>Download and install the NexGen 5G app from the Play Store to complete the setup.</p>
+                <button onclick="nextStep(5)">Next</button>
+            </div>
+            
+            <div class="step" id="step5" style="display:none;">
+                <h2>Step 5: Upgrade System</h2>
+                <p>Click the button below to upgrade your system for 5G compatibility.</p>
+                <button onclick="upgradeSystem()">Upgrade System</button>
+            </div>
+            
+            <div class="step" id="step6" style="display:none;">
+                <h2>Step 6: Software Management</h2>
+                <p>Manage various software actions to complete the 5G setup.</p>
+                <button onclick="checkForUpdates()">Check for Updates</button>
+                <button onclick="installDrivers()">Install Necessary Drivers</button>
+                <button onclick="verify5GConnection()">Verify 5G Connection</button>
+                <div id="updateStatus" style="margin-top: 10px;"></div>
+                <div id="animation" style="display:none;">
+                    <div class="processor">
+                        <div class="signal-wave"></div>
+                        <div class="signal-wave"></div>
+                        <div class="signal-wave"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="step" id="step7" style="display:none;">
+                <h2>Enjoy 5G Connectivity!</h2>
+                <p>Your phone is now upgraded to 5G! Enjoy faster speeds and improved connectivity.</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+<style class="css">body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    color: #007bff;
+}
+
+.step {
+    margin-top: 20px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#animation {
+    margin-top: 20px;
+    position: relative;
+    width: 100%;
+    height: 150px;
+}
+
+.processor {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: #007bff;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+.signal-wave {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border: 5px solid #007bff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: wave 1.5s infinite ease-out;
+}
+
+.signal-wave:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.signal-wave:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes wave {
+    0% {
+        width: 20px;
+        height: 20px;
+        opacity: 1;
+    }
+    100% {
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+}
+</style>
+<script class="js">function nextStep(stepNumber) {
+    const currentStep = document.querySelector('.step:not([style*="display: none"])');
+    currentStep.style.display = 'none';
+
+    const nextStep = document.getElementById('step' + stepNumber);
+    if (nextStep) {
+        nextStep.style.display = 'block';
+    }
+}
+
+function upgradeSystem() {
+    alert('System is being upgraded for 5G compatibility...');
+    // Simulate a delay for the upgrade process
+    setTimeout(() => {
+        alert('System upgrade complete!');
+        nextStep(6);
+    }, 2000);
+}
+
+function checkForUpdates() {
+    const updateStatus = document.getElementById('updateStatus');
+    updateStatus.innerHTML = 'Checking for updates...';
+    // Simulate a delay for checking updates
+    setTimeout(() => {
+        updateStatus.innerHTML = 'Updates are up to date!';
+    }, 2000);
+}
+
+function installDrivers() {
+    const updateStatus = document.getElementById('updateStatus');
+    updateStatus.innerHTML = 'Installing necessary drivers...';
+    // Simulate a delay for installing drivers
+    setTimeout(() => {
+        updateStatus.innerHTML = 'Drivers installed successfully!';
+    }, 2000);
+}
+
+function verify5GConnection() {
+    const updateStatus = document.getElementById('updateStatus');
+    updateStatus.innerHTML = 'Verifying 5G connection...';
+    const animation = document.getElementById('animation');
+    animation.style.display = 'block';
+    // Simulate a delay for verifying connection
+    setTimeout(() => {
+        animation.style.display = 'none';
+        updateStatus.innerHTML = '5G connection verified!';
+        nextStep(7);
+    }, 3000);
+}
+</script>
